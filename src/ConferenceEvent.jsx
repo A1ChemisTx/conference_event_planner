@@ -58,9 +58,16 @@ const ConferenceEvent = () => {
           venueItems.forEach((item) => {
             totalCost += item.cost * item.quantity;
           });
+        } else if (section === "av") { 
+            avItems.forEach((item) => {
+                totalCost += item.cost * item.quantity;
+            });
         }
         return totalCost;
       };
+
+    const avTotalCost = calculateTotalCost("av");
+
     const venueTotalCost = calculateTotalCost("venue");
 
     const navigateToProducts = (idType) => {
@@ -178,7 +185,7 @@ const ConferenceEvent = () => {
                                     ))}
 
                                 </div>
-                                <div className="total_cost">Total Cost:</div>
+                                <div className="total_cost">Total Cost: {avTotalCost}</div>
 
                             </div>
 
