@@ -44,8 +44,8 @@ const ConferenceEvent = () => {
     const handleMealSelection = (index) => {
        const item = mealsItems[index];
        if (item.selected && item.type === "mealForPeople") {
-        const newNumberofPeople = item.selected ? numberofPeople : 0;
-        dispatch(toggleMealSelection(index, newNumberofPeople));
+        const newNumberOfPeople = item.selected ? numberOfPeople : 0;
+        dispatch(toggleMealSelection(index, newNumberOfPeople));
        }
        else {
         dispatch(toggleMealSelection(index));
@@ -74,7 +74,7 @@ const ConferenceEvent = () => {
         } else if (section === "meals") {
             mealsItems.forEach((item) => {
                 if (item.selected) {
-                    totalCost += item.cost * numberofPeople;
+                    totalCost += item.cost * numberOfPeople;
                 }
             });
         }
@@ -214,18 +214,18 @@ const ConferenceEvent = () => {
                                 </div>
 
                                 <div className="input-container venue_selection">
-                                    <label htmlFor="numberofPeople"><h3>number of People:</h3></label>
-                                    <input type="number" className="input_box5" id="numberofPeople"value={numberofPeople}
+                                    <label htmlFor="numberOfPeople"><h3>number of People:</h3></label>
+                                    <input type="number" className="input_box5" id="numberOfPeople"value={numberOfPeople}
                                     onChange={(e) => {
-                                        const value = parseInt(e.target.value);
+                                    const value = parseInt(e.target.value);
 
-                                        if (isNaN(value) || value < 1) {
-                                            setNumberOfPeople(1);
-                                        } else {
-                                            setNumberOfPeople(value);
-                                        }
-                                    }}
-                                        nim="1"
+                                    if (isNaN(value) || value < 1) {
+                                        setNumberOfPeople(1);
+                                    } else {
+                                        setNumberOfPeople(value);
+                                    }
+                                }}
+                                        min="1"
                                      />
 
                                 </div>
@@ -246,8 +246,6 @@ const ConferenceEvent = () => {
                                     <div className="total_cost"> Total Cost: {mealsTotalCost}</div>
 
                                 </div>
-                                <div className="total_cost">Total Cost: </div>
-
 
                             </div>
                         </div>
