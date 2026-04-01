@@ -26,20 +26,20 @@ const ConferenceEvent = () => {
           return; 
         }
         dispatch(incrementQuantity(index));
-      };
+    };
     
-      const handleRemoveFromCart = (index) => {
+    const handleRemoveFromCart = (index) => {
         if (venueItems[index].quantity > 0) {
           dispatch(decrementQuantity(index));
         }
-      };
+    };
     const handleIncrementAvQuantity = (index) => {
         dispatch(incrementAvQuantity(index));
     };
-
+    
     const handleDecrementAvQuantity = (index) => {
-	    dispatch(decrementAvQuantity(index));
-    };  
+        dispatch(decrementAvQuantity(index));
+    };
 
     const handleMealSelection = (index) => {
        const item = mealsItems[index];
@@ -85,8 +85,8 @@ const ConferenceEvent = () => {
         console.log(items);
         return <>
             <div className="display_box1">
-                {items.length === 0 && <p>No Items Selected</p>}
-                <table className="table_item_date">
+                {items.length === 0 && <p>No items selected</p>}
+                <table className="table_item_data">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -107,7 +107,7 @@ const ConferenceEvent = () => {
                                 </td>
                                 <td>{item.type === "meals" || item.numberOfPeople
                                     ? `${item.cost * numberOfPeople}`
-                                    :  `${item.cost * item.quantity}`}
+                                    : `${item.cost * item.quantity}`}
                                 </td>
                             </tr>
                         ))}
@@ -116,6 +116,7 @@ const ConferenceEvent = () => {
             </div>
         </>
     };
+    
     const calculateTotalCost = (section) => {
         let totalCost = 0;
         if (section === "venue") {
