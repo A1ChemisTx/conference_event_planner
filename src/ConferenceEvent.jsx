@@ -62,7 +62,7 @@ const ConferenceEvent = () => {
         avItems.forEach((item) => {
             if (
                 item.quantity > 0 &&
-                !item.some((i) => i.name === item.name && i.type === "av")
+                !items.some((i) => i.name === item.name && i.type === "av")
             ) {
                 items.push({ ...item, type: "av"});
             }
@@ -256,7 +256,7 @@ const ConferenceEvent = () => {
                                                 <div className="addons_btn">
                                                     <button className="btn-warning" onClick={() => handleDecrementAvQuantity(index)}> &ndash; </button>
                                                     <span className="quantity-value">{item.quantity}</span>
-                                                    <button className="btn-success" onClick={() => handleIncrementAvQuantity(index)}> &#43; </button>
+                                                    <button className=" btn-success" onClick={() => handleIncrementAvQuantity(index)}> &#43; </button>
                                                 </div>
                                         </div>
                                     ))}
